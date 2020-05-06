@@ -5,6 +5,7 @@ import store from "./store";
 import history from "./utils/history";
 
 import LandingPage from './components/LandingPage';
+import Dashboard from './components/Dashboard';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./assets/styles/app.scss";
@@ -17,6 +18,7 @@ class App extends Component {
           <div className="App">
             <Switch>
               <Route exact path="/" component={LandingPage} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </Switch>
           </div>
         </Router>

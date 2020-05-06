@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import BlackLogo from "../../assets/images/logo-black.png";
 
@@ -17,7 +18,9 @@ const LandingPage = () => {
               <p>Date - <b>06/05/2020</b></p>
             </div>
             <div className="pl-landing-button">
-              <Button>Navigate to Dashboard</Button>
+              <Link to="/dashboard">
+                <Button>Navigate to Dashboard</Button>
+              </Link>
             </div>
           </div>
         </div>
