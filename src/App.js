@@ -4,7 +4,11 @@ import { Provider } from "react-redux";
 import store from "./store";
 import history from "./utils/history";
 
-import "./App.css";
+import LandingPage from './components/LandingPage';
+import Dashboard from './components/Dashboard';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./assets/styles/app.scss";
 
 class App extends Component {
   render() {
@@ -13,7 +17,8 @@ class App extends Component {
         <Router history={history}>
           <div className="App">
             <Switch>
-              {/* <Route exact path="/" component={Login} /> */}
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/dashboard" component={Dashboard} />
             </Switch>
           </div>
         </Router>
