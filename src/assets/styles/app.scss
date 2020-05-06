@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;600&display=swap');
+@import './globals/colors';
+@import './globals/variables';
+@import './globals/mixins';
+
+// Component custom styling
+@import '../../components/LandingPage/styles.scss';
+
+body {
+  font-family: 'Muli', sans-serif;
+  font-style: normal !important;
+  font-size: #{$unit} !important;
+  line-height: 1 !important;
+
+  button:focus {
+    outline: none;
+    border: thin solid $primary-color;
+  }
+}
