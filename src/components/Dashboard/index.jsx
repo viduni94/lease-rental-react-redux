@@ -6,15 +6,36 @@ import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import { fetchCurrentLeasesList } from '../../actions/leaseActions';
 import Navbar from '../Common/Navbar';
 import Footer from '../Common/Footer';
+import LeaseModal from '../LeaseModal';
 
 class Dashboard extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isModalOpen: false,
+    }
+  }
+
   componentDidMount() {
     const { fetchCurrentLeasesList } = this.props;
     fetchCurrentLeasesList();
   }
 
+  toggleModal = () => {
+    const { isModalOpen } = this.state;
+    this.setState({ isModalOpen: !isModalOpen });
+  }
+
   render() {
-    const { currentLeasesList, isFetchingCurrentLeases } = this.props;
+    const {
+      currentLeasesList,
+      isFetchingCurrentLeases,
+      currentLeasesFetchError,
+    } = this.props;
+
+    const { isModalOpen } = this.state;
+
     let leasesContent;
 
     if (isFetchingCurrentLeases) {
@@ -41,7 +62,7 @@ class Dashboard extends PureComponent {
                 <th scope="row">{i+1}</th>
                 <td>{lease.id}</td>
                 <td>{lease.tenant}</td>
-                <td className="pl-view-details-icon"><VisibilityOutlinedIcon /></td>
+                <td className="pl-view-details-icon"><VisibilityOutlinedIcon onClick={this.toggleModal} /></td>
               </tr>
             ))}
           </tbody>
@@ -55,9 +76,12 @@ class Dashboard extends PureComponent {
         <Navbar />
         <div className="container pl-lease-container">
           <h3 className="pl-leases-heading">Current Leases List</h3>
-          {leasesContent}
+          {!isFetchingCurrentLeases && currentLeasesFetchError
+            ? <p className="pl-leases-error">Could not retrieve current leases list. Please try again later.</p>
+            : leasesContent}
         </div>
         <Footer />
+        {isModalOpen ? <LeaseModal modal={isModalOpen} toggle={this.toggleModal} /> : ''}
       </>
     );
   }
@@ -70,6 +94,7 @@ Dashboard.propTypes = {
 const mapStateToProps = state => ({
   currentLeasesList: state.lease.currentLeasesList,
   isFetchingCurrentLeases: state.lease.isFetchingCurrentLeases,
+  currentLeasesFetchError: state.lease.currentLeasesFetchError,
 });
 
 export default connect(mapStateToProps, { fetchCurrentLeasesList })(Dashboard);
