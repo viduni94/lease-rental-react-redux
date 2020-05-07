@@ -26,7 +26,6 @@ export default function(state = initialState, action) {
         isFetchingCurrentLeases: true,
       }
     case FETCH_CURRENT_LEASES_SUCCESS:
-      console.log(payload);
       return {
         ...state,
         isFetchingCurrentLeases: false,
