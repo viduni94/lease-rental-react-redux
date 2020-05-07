@@ -43,7 +43,6 @@ export default function(state = initialState, action) {
         isFetchingSelectedLease: true,
       }
     case FETCH_SELECTED_LEASE_SUCCESS:
-      console.log(payload);
       return {
         ...state,
         isFetchingSelectedLease: false,
