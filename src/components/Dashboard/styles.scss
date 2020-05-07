@@ -1,0 +1,45 @@
+.pl-lease-container {
+  height: calc(100vh - 134px);
+
+  .pl-leases-heading {
+    text-transform: uppercase;
+    text-align: center;
+    padding: #{$unit * 3};
+  }
+
+  .pl-no-leases {
+    text-align: center;
+    font-size: #{$unit * 1.1};
+    color: $primary-color;
+  }
+
+  .pl-leases-error {
+    text-align: center;
+    font-size: #{$unit * 1.1};
+    color: #e4a60b;
+  }
+
+  td, th {
+    text-align: center;
+  }
+
+  .pl-view-details-icon {
+    svg {
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.pl-spinner {
+  text-align: center;
+
+  div {
+    color: $primary-color !important;
+    height: #{$unit * 3};
+    width: #{$unit * 3};
+  }
+}
