@@ -7,24 +7,12 @@
     padding: #{$unit * 3};
   }
 
-  .pl-no-leases {
-    text-align: center;
-    font-size: #{$unit * 1.1};
-    color: $primary-color;
-  }
-
-  .pl-leases-error {
-    text-align: center;
-    font-size: #{$unit * 1.1};
-    color: #e4a60b;
-  }
-
   td, th {
     text-align: center;
   }
 
   .pl-view-details-icon {
-    svg {
+    i {
       cursor: pointer;
 
       &:hover {
@@ -32,6 +20,18 @@
       }
     }
   }
+}
+
+.pl-no-leases {
+  text-align: center;
+  font-size: #{$unit * 1.1};
+  color: $primary-color;
+}
+
+.pl-leases-error {
+  text-align: center;
+  font-size: #{$unit * 1.1};
+  color: #e4a60b;
 }
 
 .pl-spinner {

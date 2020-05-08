@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Table, Spinner } from 'reactstrap';
 import PropTypes from "prop-types";
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
-import { fetchCurrentLeasesList } from '../../actions/leaseActions';
+import { fetchCurrentLeasesList, fetchSelectedLeaseByLeaseId } from '../../actions/leaseActions';
 import Navbar from '../Common/Navbar';
 import Footer from '../Common/Footer';
 import LeaseModal from '../LeaseModal';
@@ -14,6 +13,7 @@ class Dashboard extends PureComponent {
 
     this.state = {
       isModalOpen: false,
+      selectedLeaseId: '',
     }
   }
 
@@ -22,8 +22,17 @@ class Dashboard extends PureComponent {
     fetchCurrentLeasesList();
   }
 
-  toggleModal = () => {
+  /**
+   * Toggle the visibility state of the lease modal
+   */
+  toggleModal = (e) => {
     const { isModalOpen } = this.state;
+    const { fetchSelectedLeaseByLeaseId } = this.props;
+
+    if (Object.keys(e.target.dataset).length) {
+      fetchSelectedLeaseByLeaseId(e.target.dataset.leaseId);
+    }
+
     this.setState({ isModalOpen: !isModalOpen });
   }
 
@@ -62,7 +71,9 @@ class Dashboard extends PureComponent {
                 <th scope="row">{i+1}</th>
                 <td>{lease.id}</td>
                 <td>{lease.tenant}</td>
-                <td className="pl-view-details-icon"><VisibilityOutlinedIcon onClick={this.toggleModal} /></td>
+                <td className="pl-view-details-icon" >
+                  <i className="fa fa-eye" onClick={this.toggleModal} data-lease-id={lease.id}></i>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -97,4 +108,4 @@ const mapStateToProps = state => ({
   currentLeasesFetchError: state.lease.currentLeasesFetchError,
 });
 
-export default connect(mapStateToProps, { fetchCurrentLeasesList })(Dashboard);
+export default connect(mapStateToProps, { fetchCurrentLeasesList, fetchSelectedLeaseByLeaseId })(Dashboard);
