@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Spinner, Table } from 'reactstrap';
+import calculateRentalCycles from '../../utils/paymentCalculator';
+import { formatAsCurrency } from '../../utils/formatter';
 
 const LeaseModal = ({
   modal,toggle, selectedLease, isFetchingSelectedLease, selectedLeaseFetchError,
@@ -22,6 +24,9 @@ const LeaseModal = ({
     );
   // Display the fetched data on success
   } else {
+    const rentalCycles = calculateRentalCycles(selectedLease);
+    console.log("rentalCycles", rentalCycles)
+
     modalContent = (
       <Table striped>
         <thead>
@@ -34,7 +39,15 @@ const LeaseModal = ({
           </tr>
         </thead>
         <tbody>
-          
+          {rentalCycles && rentalCycles.map((cycle, i) => (
+            <tr key={i}>
+              <th scope="row">{i+1}</th>
+              <td>{cycle.start}</td>
+              <td>{cycle.end}</td>
+              <td>{cycle.noOfDays}</td>
+              <td>{formatAsCurrency(cycle.amount)}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     );
@@ -45,7 +58,7 @@ const LeaseModal = ({
       <ModalHeader toggle={toggle}>
         Lease: <b>{selectedLease ? selectedLease.id : ''}</b>
       </ModalHeader>
-      <ModalBody>
+      <ModalBody className="pl-modal-body">
         {modalContent}
       </ModalBody>
       <ModalFooter>
