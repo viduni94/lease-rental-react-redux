@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Spinner, Table } from 'reactstrap';
-import calculateRentalCycles from '../../utils/paymentCalculator';
+import { calculateRentalCycles } from '../../utils/paymentCalculator';
 import { formatAsCurrency } from '../../utils/formatter';
 
 const LeaseModal = ({
