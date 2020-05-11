@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --collect-coverage",
     "test:watch": "npm test -- --watch",
     "eject": "react-scripts eject"
   },
@@ -39,7 +39,13 @@
     ]
   },
   "devDependencies": {
-    "babel-jest": "^26.0.1",
-    "jest": "^26.0.1"
+    "jest": "24.9.0",
+    "redux-mock-store": "^1.5.4",
+    "regenerator-runtime": "^0.13.5"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./config/setupTest.js"
+    ]
   }
 }
