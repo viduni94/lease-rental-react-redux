@@ -27,7 +27,7 @@ describe('test lease actions', () => {
     store = mockStore({});
   });
 
-  it('should create FETCHING_CURRENT_LEASES when setting the leases list fetching state', () => {
+  test('should create FETCHING_CURRENT_LEASES when setting the leases list fetching state', () => {
     const expectedAction = {
       type: FETCHING_CURRENT_LEASES,
     };
@@ -35,7 +35,7 @@ describe('test lease actions', () => {
     expect(setFetchingCurrentLeases()).toEqual(expectedAction);
   });
 
-  it('should create FETCHING_SELECTED_LEASE when setting the lease fetching state', () => {
+  test('should create FETCHING_SELECTED_LEASE when setting the lease fetching state', () => {
     const expectedAction = {
       type: FETCHING_SELECTED_LEASE,
     };
@@ -43,7 +43,7 @@ describe('test lease actions', () => {
     expect(setFetchingSelectedLease()).toEqual(expectedAction);
   });
 
-  it('should create FETCH_CURRENT_LEASES_SUCCESS on successful data fetch', async () => {
+  test('should create FETCH_CURRENT_LEASES_SUCCESS on successful data fetch', async () => {
     const result = {
       data: [
         { id: "lease-a", tenant: "Alex" },
@@ -66,7 +66,7 @@ describe('test lease actions', () => {
     expect(store.getActions()).toEqual(expectedAction);
   });
 
-  it('should create FETCH_CURRENT_LEASES_SUCCESS on successful api call with no data', async () => {
+  test('should create FETCH_CURRENT_LEASES_SUCCESS on successful api call with no data', async () => {
     const expectedAction = [
       { type: FETCHING_CURRENT_LEASES },
       {
@@ -82,7 +82,7 @@ describe('test lease actions', () => {
     expect(store.getActions()).toEqual(expectedAction);
   });
 
-  it('should create FETCH_CURRENT_LEASES_ERROR on data fetch failure', async () => {
+  test('should create FETCH_CURRENT_LEASES_ERROR on data fetch failure', async () => {
     const expectedAction = [
       { type: FETCHING_CURRENT_LEASES },
       {
@@ -98,7 +98,7 @@ describe('test lease actions', () => {
     expect(store.getActions()).toEqual(expectedAction);
   });
 
-  it('should create FETCH_SELECTED_LEASE_SUCCESS on successful data fetch', async () => {
+  test('should create FETCH_SELECTED_LEASE_SUCCESS on successful data fetch', async () => {
     const selectedLease = 'lease-a';
     const result = {
       data: {
@@ -125,7 +125,7 @@ describe('test lease actions', () => {
     expect(store.getActions()).toEqual(expectedAction);
   });
 
-  it('should create FETCH_SELECTED_LEASE_SUCCESS on successful api call with no data', async () => {
+  test('should create FETCH_SELECTED_LEASE_SUCCESS on successful api call with no data', async () => {
     const selectedLease = 'lease-a';
     const expectedAction = [
       { type: FETCHING_SELECTED_LEASE },
@@ -142,7 +142,7 @@ describe('test lease actions', () => {
     expect(store.getActions()).toEqual(expectedAction);
   });
 
-  it('should create FETCH_SELECTED_LEASE_ERROR on data fetch failure', async () => {
+  test('should create FETCH_SELECTED_LEASE_ERROR on data fetch failure', async () => {
     const selectedLease = 'lease-a';
     const expectedAction = [
       { type: FETCHING_SELECTED_LEASE },
