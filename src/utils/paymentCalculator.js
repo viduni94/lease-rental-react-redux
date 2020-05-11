@@ -12,9 +12,9 @@ const { paymentFrequency, paymentDays, noOfDaysInAWeek } = constants;
  * Calculates and returns the first payment of the lease.
  * This date is the last date of the first payment cycle.
  */
-const getFirstPaymentDate = (date, paymentDay) => {
+export const getFirstPaymentDate = (date, paymentDay) => {
   const paymentDate = new Date(date);
-  const { dayIndex } = (paymentDay && paymentDays[paymentDay.toUpperCase()]) || 1; // Defaults to monday
+  const { dayIndex } = (paymentDay && paymentDays[paymentDay.toUpperCase()]);
 
   paymentDate.setDate(paymentDate.getDate() + (dayIndex - 1 - paymentDate.getDay() + 7) % 7);
   return paymentDate;
@@ -31,7 +31,7 @@ const calculateNoOfDaysBetweenTwoDates = (start, end) => differenceInCalendarDay
  * the no. of days in the cycle and the amount to be paid
  * for the particular cycle.
  */
-const calculateRentalCycles = (leaseInfo) => {  
+export const calculateRentalCycles = (leaseInfo) => {
   const {
     end_date,
     start_date,
@@ -39,6 +39,8 @@ const calculateRentalCycles = (leaseInfo) => {
     payment_day,
     rent,
   } = leaseInfo || {};
+
+  if (!start_date || !end_date) return null;
 
   let paymentCyclesArray = [];
   const startDate = new Date(new Date(start_date).setHours(0,0,0,0));
@@ -87,5 +89,3 @@ const calculateRentalCycles = (leaseInfo) => {
   }
   return paymentCyclesArray;
 }
-
-export default calculateRentalCycles;
