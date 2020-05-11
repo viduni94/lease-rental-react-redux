@@ -1,5 +1,4 @@
 import { calculateRentalCycles, getFirstPaymentDate } from '../../src/utils/paymentCalculator';
-import {formatAsCurrency, formatAsDate} from "../../src/utils/formatter";
 
 describe('test payment calculator', () => {
   test('should return correct formatted date', () => {
