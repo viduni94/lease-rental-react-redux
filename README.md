@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## PROPERTY LEASING
 
-## Available Scripts
+This project is an application for Lease Rentals.
 
-In the project directory, you can run:
+## Owner
 
-### `yarn start`
+* Viduni Wickramarachchi - Software Engineer
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Summary
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* Type of project
+    * React Application
+* Technologies
+    * ReactJS (v16.13.1 or higher)
+    * Redux (v4.0.5 or higher)
+    * Styling - SCSS
+    * For other libraries, refer the package.json file
+* Dependencies
+    * https://hiring-task-api.herokuapp.com
+* Infrastructure
+    * Heroku
+    
+#### Design
+* Architecture - SPA
+* UI Rendering - React
+* Frontend routing - React-router
+* AJAX Calls - Axios requests to API endpoints
 
-### `yarn test`
+### How to run the application locally
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### How to build
 
-### `yarn build`
+```$xslt
+git clone https://github.com/viduni94/lease-rental-react-redux.git
+cd lease-rental-react-redux
+git checkout master
+yarn
+yarn build
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##### How to run
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```$xslt
+yarn
+yarn start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The demo app will be hosted on http://localhost:3000/
 
-### `yarn eject`
+### Testing Guide
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### How to run unit tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```$xslt
+yarn test
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### Unit test coverage
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
