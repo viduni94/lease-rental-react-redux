@@ -30,6 +30,12 @@ const calculateNoOfDaysBetweenTwoDates = (start, end) => differenceInCalendarDay
  * and returns an array of the from, to dates of the cycle,
  * the no. of days in the cycle and the amount to be paid
  * for the particular cycle.
+ *
+ * eg: If the start_date is Thursday, the 20th and the payment_day is friday,
+ * the first cycle would consist of one day (Thursday - 20th). The start of the
+ * second cycle would be Friday, the 21st.
+ * Considering the payment happens weekly, the second cyle will go on from
+ * 21st Friday to 27th Thursday.
  */
 export const calculateRentalCycles = (leaseInfo) => {
   const {
