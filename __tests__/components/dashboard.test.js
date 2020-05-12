@@ -1,6 +1,5 @@
 import React from "react";
 import { shallow } from "enzyme";
-import configureStore from 'redux-mock-store';
 import { Spinner } from 'reactstrap';
 import { Dashboard } from "../../src/components/Dashboard";
 
