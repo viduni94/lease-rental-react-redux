@@ -1,6 +1,6 @@
 ## PROPERTY LEASING
 
-This project is an application for Lease Rentals.
+This project is an application for Lease Rentals.<br />
 Hosted Application - https://lease-rental.herokuapp.com/
 
 ## Owner
