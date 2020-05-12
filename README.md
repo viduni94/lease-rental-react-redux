@@ -56,4 +56,4 @@ yarn test
 ```
 
 ##### Unit test coverage
-
+![alt text](https://user-images.githubusercontent.com/20037159/81662847-c66a2000-945b-11ea-948e-8a292304854a.png)
