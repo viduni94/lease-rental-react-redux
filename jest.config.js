@@ -9,6 +9,8 @@ module.exports = {
     "src/**/*.jsx",
     "!<rootDir>/jest.config.js",
     "!<rootDir>/node_modules/",
+    "!<rootDir>/src/utils/history.js",
+    "!<rootDir>/src/utils/constants.js",
   ],
   setupFilesAfterEnv: ["<rootDir>/config/setupTest.js"],
   transform: {
