@@ -25,7 +25,6 @@ const LeaseModal = ({
   // Display the fetched data on success
   } else {
     const rentalCycles = calculateRentalCycles(selectedLease);
-    console.log("rentalCycles", rentalCycles)
 
     modalContent = (
       <Table striped>

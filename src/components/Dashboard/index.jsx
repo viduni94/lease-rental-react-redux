@@ -7,7 +7,7 @@ import Navbar from '../Common/Navbar';
 import Footer from '../Common/Footer';
 import LeaseModal from '../LeaseModal';
 
-class Dashboard extends PureComponent {
+export class Dashboard extends PureComponent {
   constructor(props) {
     super(props);
 
