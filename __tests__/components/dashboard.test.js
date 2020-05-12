@@ -4,8 +4,6 @@ import configureStore from 'redux-mock-store';
 import { Spinner } from 'reactstrap';
 import { Dashboard } from "../../src/components/Dashboard";
 
-const mockStore = configureStore([]);
-
 const props = {
   fetchCurrentLeasesList: jest.fn().mockReturnThis(),
   fetchSelectedLeaseByLeaseId: jest.fn().mockReturnThis(),
@@ -18,23 +16,7 @@ const props = {
   ],
 };
 
-const initialState = {
-  lease: {
-    currentLeasesList: [],
-    selectedLease: null,
-    isFetchingCurrentLeases: false,
-    isFetchingSelectedLease: false,
-    currentLeasesFetchError: null,
-    selectedLeaseFetchError: null,
-  },
-};
-
 describe("test Dashboard Component", () => {
-  let store;
-  beforeEach(() => {
-    store = mockStore(initialState);
-  });
-
   test("should render as expected", done => {
     const wrapper = shallow(<Dashboard {...props} />);
     expect(wrapper).toHaveLength(1);

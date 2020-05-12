@@ -4,8 +4,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Spinner, Table } fr
 import { calculateRentalCycles } from '../../utils/paymentCalculator';
 import { formatAsCurrency } from '../../utils/formatter';
 
-const LeaseModal = ({
-  modal,toggle, selectedLease, isFetchingSelectedLease, selectedLeaseFetchError,
+export const LeaseModal = ({
+  modal, toggle, selectedLease, isFetchingSelectedLease, selectedLeaseFetchError,
 }) => {
   let modalContent;
   // Display an error message if fetching the selected lease fails
@@ -55,13 +55,13 @@ const LeaseModal = ({
   return (
     <Modal isOpen={modal} toggle={toggle} size="lg" backdrop>
       <ModalHeader toggle={toggle}>
-        Lease: <b>{selectedLease ? selectedLease.id : ''}</b>
+        Lease: <b className="pl-modal-header">{selectedLease ? selectedLease.id : ''}</b>
       </ModalHeader>
       <ModalBody className="pl-modal-body">
         {modalContent}
       </ModalBody>
       <ModalFooter>
-        <Button color="secondary" onClick={toggle}>OK</Button>
+        <Button className="pl-footer-btn" color="secondary" onClick={toggle}>OK</Button>
       </ModalFooter>
     </Modal>
   );
